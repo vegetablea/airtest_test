@@ -6,12 +6,17 @@
 # @Desc    :
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os, sys
+#在jenkins构建项目时有可能找不到项目地址、python环境地址，需要加入
+dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(dir)
+#加入环境的三方包地址
+sys.path.append("C:\\Users\\39835\\AppData\\Roaming\\Python\\Python39\\site-packages")
 from airtest.cli.runner import AirtestCase, run_script
 from argparse import *
 import airtest.report.report as report
 import jinja2
 import shutil
-import os
 import io
 
 class CustomAirtestCase(AirtestCase):
